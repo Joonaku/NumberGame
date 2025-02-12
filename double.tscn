@@ -1,0 +1,962 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/slots/doublefrontside.png" type="Texture" id=1]
+[ext_resource path="res://assets/slots/windoublebacksidef2.png" type="Texture" id=2]
+[ext_resource path="res://assets/slots/windoublebacksidef3.png" type="Texture" id=3]
+[ext_resource path="res://assets/slots/windoublebacksidef4.png" type="Texture" id=4]
+[ext_resource path="res://assets/slots/windoublebacksidef1.png" type="Texture" id=5]
+[ext_resource path="res://assets/slots/doublefrontsidef4.png" type="Texture" id=6]
+[ext_resource path="res://assets/slots/doublefrontsidef1.png" type="Texture" id=7]
+[ext_resource path="res://assets/slots/doublefrontsidef3.png" type="Texture" id=8]
+[ext_resource path="res://assets/slots/doublefrontsidef2.png" type="Texture" id=9]
+[ext_resource path="res://scripts/doubleselect.gd" type="Script" id=10]
+[ext_resource path="res://assets/slots/lossdoublebacksidef1.png" type="Texture" id=11]
+[ext_resource path="res://assets/slots/lossdoublebacksidef3.png" type="Texture" id=12]
+[ext_resource path="res://assets/slots/lossdoublebacksidef4.png" type="Texture" id=13]
+[ext_resource path="res://scripts/randomize.gd" type="Script" id=14]
+[ext_resource path="res://assets/Raleway-VariableFont_wght.ttf" type="DynamicFontData" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "2X",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "0X",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 1
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+outline_size = 2
+outline_color = Color( 0.94902, 1, 0.254902, 1 )
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 80
+outline_size = 5
+font_data = ExtResource( 15 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 14 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = -0.471939
+margin_right = 1023.0
+margin_bottom = 598.528
+rect_pivot_offset = Vector2( -503.171, 72.8673 )
+color = Color( 0.12549, 0.247059, 0.258824, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card1" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 60.6976, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card1"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card2" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 144.843, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card2"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card3" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 229.696, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card3"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card4" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 313.842, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card4"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card5" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 396.566, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card5"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card6" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 480.712, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card6"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card7" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 565.565, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card7"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card8" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 649.711, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card8"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card9" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 732.827, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card9"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card10" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 816.972, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card10"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card11" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 60.6976, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card11"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card12" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 144.843, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card12"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card13" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 229.696, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card13"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card14" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 313.842, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card14"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card15" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 396.566, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card15"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card16" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 480.712, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card16"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card17" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 565.565, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card17"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card18" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 649.711, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card18"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card19" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 732.827, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card19"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card20" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 816.972, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card20"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card21" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 60.6976, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card21"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card22" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 144.843, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card22"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card23" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 229.696, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card23"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card24" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 313.842, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card24"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card25" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 396.566, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card25"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card26" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 480.712, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card26"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card27" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 565.565, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card27"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card28" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 649.711, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card28"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card29" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 732.827, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card29"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card30" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 816.972, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card30"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card31" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 60.6976, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card31"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card32" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 144.843, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card32"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card33" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 229.696, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card33"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card34" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 313.842, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card34"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card35" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 396.566, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card35"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card36" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 480.712, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card36"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card37" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 565.565, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card37"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card38" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 649.711, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card38"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card39" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 732.827, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card39"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card40" type="AnimatedSprite" parent="ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 816.972, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 1 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="ColorRect/card40"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="winnings" type="Label" parent="ColorRect"]
+margin_left = 38.5458
+margin_top = 535.465
+margin_right = 532.546
+margin_bottom = 583.465
+custom_fonts/font = SubResource( 2 )
+text = "Current winnings:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="win" type="ColorRect" parent="."]
+visible = false
+margin_right = 1024.0
+margin_bottom = 599.0
+color = Color( 0.0431373, 0.0196078, 0.0196078, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Double" type="Button" parent="win"]
+margin_left = 562.374
+margin_top = 347.963
+margin_right = 752.374
+margin_bottom = 434.963
+custom_fonts/font = SubResource( 3 )
+text = "Double"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keep" type="Button" parent="win"]
+margin_left = 162.757
+margin_top = 347.963
+margin_right = 502.757
+margin_bottom = 434.963
+custom_fonts/font = SubResource( 3 )
+text = "Keep winnings"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="win"]
+margin_left = 146.648
+margin_top = 80.3184
+margin_right = 722.648
+margin_bottom = 384.318
+custom_fonts/font = SubResource( 4 )
+text = "You won: "
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="pressed" from="ColorRect/card1/Button" to="ColorRect/card1/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card2/Button" to="ColorRect/card2/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card3/Button" to="ColorRect/card3/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card4/Button" to="ColorRect/card4/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card5/Button" to="ColorRect/card5/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card6/Button" to="ColorRect/card6/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card7/Button" to="ColorRect/card7/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card8/Button" to="ColorRect/card8/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card9/Button" to="ColorRect/card9/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card10/Button" to="ColorRect/card10/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card11/Button" to="ColorRect/card11/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card12/Button" to="ColorRect/card12/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card13/Button" to="ColorRect/card13/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card14/Button" to="ColorRect/card14/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card15/Button" to="ColorRect/card15/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card16/Button" to="ColorRect/card16/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card17/Button" to="ColorRect/card17/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card18/Button" to="ColorRect/card18/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card19/Button" to="ColorRect/card19/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card20/Button" to="ColorRect/card20/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card21/Button" to="ColorRect/card21/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card22/Button" to="ColorRect/card22/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card23/Button" to="ColorRect/card23/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card24/Button" to="ColorRect/card24/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card25/Button" to="ColorRect/card25/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card26/Button" to="ColorRect/card26/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card27/Button" to="ColorRect/card27/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card28/Button" to="ColorRect/card28/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card29/Button" to="ColorRect/card29/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card30/Button" to="ColorRect/card30/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card31/Button" to="ColorRect/card31/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card32/Button" to="ColorRect/card32/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card33/Button" to="ColorRect/card33/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card34/Button" to="ColorRect/card34/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card35/Button" to="ColorRect/card35/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card36/Button" to="ColorRect/card36/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card37/Button" to="ColorRect/card37/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card38/Button" to="ColorRect/card38/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card39/Button" to="ColorRect/card39/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/card40/Button" to="ColorRect/card40/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="win/Double" to="." method="_on_Double_pressed"]
+[connection signal="pressed" from="win/keep" to="." method="_on_keep_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

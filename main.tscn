@@ -1,0 +1,2666 @@
+[gd_scene load_steps=42 format=2]
+
+[ext_resource path="res://assets/Raleway-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/doubleselect.gd" type="Script" id=2]
+[ext_resource path="res://scripts/play.gd" type="Script" id=3]
+[ext_resource path="res://scripts/randomize.gd" type="Script" id=4]
+[ext_resource path="res://scripts/select.gd" type="Script" id=5]
+[ext_resource path="res://scripts/Clearboard.gd" type="Script" id=6]
+[ext_resource path="res://assets/slots/doublefrontsidef4.png" type="Texture" id=7]
+[ext_resource path="res://assets/slots/slot2.png" type="Texture" id=8]
+[ext_resource path="res://assets/slots/slotmissed.png" type="Texture" id=9]
+[ext_resource path="res://assets/slots/slot.png" type="Texture" id=10]
+[ext_resource path="res://assets/slots/windoublebacksidef4.png" type="Texture" id=11]
+[ext_resource path="res://assets/slots/slotselected.png" type="Texture" id=12]
+[ext_resource path="res://assets/slots/lossdoublebacksidef4.png" type="Texture" id=13]
+[ext_resource path="res://assets/slots/windoublebacksidef3.png" type="Texture" id=14]
+[ext_resource path="res://assets/slots/doublefrontsidef3.png" type="Texture" id=15]
+[ext_resource path="res://assets/slots/lossdoublebacksidef3.png" type="Texture" id=16]
+[ext_resource path="res://assets/slots/windoublebacksidef2.png" type="Texture" id=17]
+[ext_resource path="res://assets/slots/lossdoublebacksidef1.png" type="Texture" id=18]
+[ext_resource path="res://assets/slots/slot4.png" type="Texture" id=19]
+[ext_resource path="res://assets/slots/doublefrontsidef1.png" type="Texture" id=20]
+[ext_resource path="res://assets/slots/doublefrontside.png" type="Texture" id=21]
+[ext_resource path="res://assets/slots/doublefrontsidef2.png" type="Texture" id=22]
+[ext_resource path="res://assets/slots/slot3.png" type="Texture" id=23]
+[ext_resource path="res://assets/slots/windoublebacksidef1.png" type="Texture" id=24]
+[ext_resource path="res://assets/slots/slot1.png" type="Texture" id=25]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="ShaderMaterial" id=2]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 25 ), ExtResource( 8 ), ExtResource( 23 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "default",
+"speed": 50.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "selected",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "slotmissed",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=4]
+size = 600
+outline_size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+outline_size = 1
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 19
+outline_size = 1
+extra_spacing_top = 9
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 19
+outline_size = 2
+outline_color = Color( 0.560784, 0.627451, 0.156863, 1 )
+extra_spacing_top = 9
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 28
+outline_size = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 19
+outline_size = 1
+outline_color = Color( 0.560784, 0.627451, 0.156863, 1 )
+extra_spacing_top = 9
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 80
+outline_size = 6
+outline_color = Color( 0.866667, 0.866667, 0.866667, 1 )
+extra_spacing_top = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 50
+outline_size = 2
+outline_color = Color( 0.94902, 1, 0.254902, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 50
+outline_size = 2
+outline_color = Color( 0.94902, 1, 0.254902, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 15 ), ExtResource( 7 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "2X",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 15 ), ExtResource( 7 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "0X",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=14]
+size = 40
+outline_size = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 50
+outline_size = 2
+outline_color = Color( 0.94902, 1, 0.254902, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 80
+outline_size = 5
+font_data = ExtResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = -0.529724
+margin_right = 1024.0
+margin_bottom = 595.47
+color = Color( 0.513726, 0.658824, 0.317647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_left = 551.435
+margin_top = 540.194
+margin_right = 701.435
+margin_bottom = 579.194
+custom_fonts/font = SubResource( 1 )
+text = "Bet amount:"
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 19.2267
+margin_top = 42.9406
+margin_right = 823.227
+margin_bottom = 523.941
+color = Color( 0.294118, 0.788235, 0.788235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot1" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 62.4298, 111.772 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Label" type="Label" parent="slot1"]
+margin_left = -177.679
+margin_top = -586.162
+margin_right = 141.321
+margin_bottom = 411.838
+custom_fonts/font = SubResource( 4 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="slot1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -358.0
+margin_top = -637.0
+margin_right = -361.0
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot2" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 137.35, 111.772 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Label" type="Label" parent="slot2"]
+margin_left = -177.679
+margin_top = -586.162
+margin_right = 141.321
+margin_bottom = 411.838
+custom_fonts/font = SubResource( 4 )
+text = "2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="slot2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -350.628
+margin_top = -637.0
+margin_right = -353.628
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot3" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 217.027, 111.772 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Label" type="Label" parent="slot3"]
+margin_left = -177.679
+margin_top = -586.162
+margin_right = 141.321
+margin_bottom = 411.838
+custom_fonts/font = SubResource( 4 )
+text = "3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="slot3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -355.523
+margin_top = -637.0
+margin_right = -358.523
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot4" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 299.082, 111.772 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Label" type="Label" parent="slot4"]
+margin_left = -177.679
+margin_top = -566.87
+margin_right = 141.321
+margin_bottom = 431.13
+custom_fonts/font = SubResource( 4 )
+text = "4"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="slot4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -348.848
+margin_top = -637.0
+margin_right = -351.848
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot5" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 383.516, 111.772 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Label" type="Label" parent="slot5"]
+margin_left = -238.928
+margin_top = -574.351
+margin_right = 217.072
+margin_bottom = 423.649
+custom_fonts/font = SubResource( 4 )
+text = "5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="slot5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -354.211
+margin_top = -637.0
+margin_right = -357.211
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot6" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 467.949, 111.772 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Label" type="Label" parent="slot6"]
+margin_left = -277.906
+margin_top = -495.427
+margin_right = 228.094
+margin_bottom = 502.573
+custom_fonts/font = SubResource( 4 )
+text = "6"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="slot6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -353.672
+margin_top = -637.0
+margin_right = -356.672
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot7" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 548.816, 111.772 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Label" type="Label" parent="slot7"]
+margin_left = -177.679
+margin_top = -586.162
+margin_right = 141.321
+margin_bottom = 411.838
+custom_fonts/font = SubResource( 4 )
+text = "7"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="slot7"]
+anchor_left = -3.39084e-07
+anchor_top = 3.8147e-07
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -349.844
+margin_top = -637.0
+margin_right = -352.844
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot8" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 629.682, 111.772 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Label" type="Label" parent="slot8"]
+margin_left = -243.895
+margin_top = -483.527
+margin_right = 250.105
+margin_bottom = 514.473
+custom_fonts/font = SubResource( 4 )
+text = "8"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="slot8"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -351.906
+margin_top = -637.0
+margin_right = -354.906
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot9" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 705.601, 111.772 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Label" type="Label" parent="slot9"]
+margin_left = -237.273
+margin_top = -575.998
+margin_right = 254.727
+margin_bottom = 422.002
+custom_fonts/font = SubResource( 4 )
+text = "9"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="slot9"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -357.277
+margin_top = -637.0
+margin_right = -360.277
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot10" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 785.295, 111.772 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Label" type="Label" parent="slot10"]
+margin_left = -407.663
+margin_top = -491.455
+margin_right = 428.337
+margin_bottom = 506.545
+custom_fonts/font = SubResource( 4 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="slot10"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -358.266
+margin_top = -637.0
+margin_right = -361.266
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot11" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 62.4298, 228.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot11"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -358.0
+margin_top = -637.0
+margin_right = -361.0
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot11"]
+margin_left = -215.136
+margin_top = -586.162
+margin_right = 234.864
+margin_bottom = 411.838
+custom_fonts/font = SubResource( 4 )
+text = "11"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot12" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 137.35, 228.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot12"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -350.628
+margin_top = -637.0
+margin_right = -353.628
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot12"]
+anchor_right = 0.366
+anchor_bottom = 0.108
+margin_left = -279.326
+margin_top = -643.615
+margin_right = 39.6741
+margin_bottom = 354.385
+custom_fonts/font = SubResource( 4 )
+text = "12"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot13" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 217.027, 228.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot13"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -355.523
+margin_top = -637.0
+margin_right = -358.523
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot13"]
+margin_left = -270.382
+margin_top = -586.162
+margin_right = 267.618
+margin_bottom = 411.838
+custom_fonts/font = SubResource( 4 )
+text = "13"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot14" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 299.082, 228.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot14"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -348.848
+margin_top = -637.0
+margin_right = -351.848
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot14"]
+margin_left = -270.586
+margin_top = -566.87
+margin_right = 265.414
+margin_bottom = 431.13
+custom_fonts/font = SubResource( 4 )
+text = "14"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot15" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 383.516, 228.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot15"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -354.211
+margin_top = -637.0
+margin_right = -357.211
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot15"]
+margin_left = -283.523
+margin_top = -574.351
+margin_right = 263.477
+margin_bottom = 423.649
+custom_fonts/font = SubResource( 4 )
+text = "15"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot16" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 467.949, 228.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot16"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -353.672
+margin_top = -637.0
+margin_right = -356.672
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot16"]
+margin_left = -277.906
+margin_top = -546.931
+margin_right = 304.094
+margin_bottom = 451.069
+custom_fonts/font = SubResource( 4 )
+text = "16"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot17" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 548.816, 228.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot17"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -340.479
+margin_top = -637.0
+margin_right = -343.479
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot17"]
+margin_left = -266.641
+margin_top = -539.34
+margin_right = 279.359
+margin_bottom = 458.66
+custom_fonts/font = SubResource( 4 )
+text = "17"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot18" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 629.682, 228.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot18"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -351.906
+margin_top = -637.0
+margin_right = -354.906
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot18"]
+margin_left = -304.764
+margin_top = -516.302
+margin_right = 269.236
+margin_bottom = 481.698
+custom_fonts/font = SubResource( 4 )
+text = "18"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot19" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 705.601, 228.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot19"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -357.277
+margin_top = -637.0
+margin_right = -360.277
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot19"]
+margin_left = -298.142
+margin_top = -519.812
+margin_right = 273.858
+margin_bottom = 478.188
+custom_fonts/font = SubResource( 4 )
+text = "19"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot20" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 785.295, 228.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Label" type="Label" parent="slot20"]
+margin_left = -407.663
+margin_top = -491.455
+margin_right = 428.337
+margin_bottom = 506.545
+custom_fonts/font = SubResource( 4 )
+text = "20"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="slot20"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -358.266
+margin_top = -637.0
+margin_right = -361.266
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot21" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 62.4298, 346.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot21"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -358.0
+margin_top = -637.0
+margin_right = -361.0
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot21"]
+margin_left = -215.136
+margin_top = -586.162
+margin_right = 234.864
+margin_bottom = 411.838
+custom_fonts/font = SubResource( 4 )
+text = "21"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot22" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 137.35, 346.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot22"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -350.628
+margin_top = -637.0
+margin_right = -353.628
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot22"]
+anchor_right = 0.366
+anchor_bottom = 0.108
+margin_left = -279.326
+margin_top = -643.615
+margin_right = 39.6741
+margin_bottom = 354.385
+custom_fonts/font = SubResource( 4 )
+text = "22"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot23" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 217.027, 346.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot23"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -355.523
+margin_top = -637.0
+margin_right = -358.523
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot23"]
+margin_left = -270.382
+margin_top = -586.162
+margin_right = 267.618
+margin_bottom = 411.838
+custom_fonts/font = SubResource( 4 )
+text = "23"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot24" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 299.082, 346.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot24"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -348.848
+margin_top = -637.0
+margin_right = -351.848
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot24"]
+margin_left = -317.408
+margin_top = -566.87
+margin_right = 285.592
+margin_bottom = 431.13
+custom_fonts/font = SubResource( 4 )
+text = "24"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot25" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 383.516, 346.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot25"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -354.211
+margin_top = -637.0
+margin_right = -357.211
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot25"]
+margin_left = -311.616
+margin_top = -574.351
+margin_right = 302.384
+margin_bottom = 423.649
+custom_fonts/font = SubResource( 4 )
+text = "25"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot26" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 467.949, 346.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot26"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -353.672
+margin_top = -637.0
+margin_right = -356.672
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot26"]
+margin_left = -320.046
+margin_top = -546.931
+margin_right = 328.954
+margin_bottom = 451.069
+custom_fonts/font = SubResource( 4 )
+text = "26"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot27" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 548.816, 346.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot27"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -340.479
+margin_top = -637.0
+margin_right = -343.479
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot27"]
+margin_left = -304.098
+margin_top = -539.34
+margin_right = 308.902
+margin_bottom = 458.66
+custom_fonts/font = SubResource( 4 )
+text = "27"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot28" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 629.682, 346.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot28"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -351.906
+margin_top = -637.0
+margin_right = -354.906
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot28"]
+margin_left = -319.629
+margin_top = -516.302
+margin_right = 321.371
+margin_bottom = 481.698
+custom_fonts/font = SubResource( 4 )
+text = "28"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot29" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 705.601, 346.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot29"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -357.277
+margin_top = -637.0
+margin_right = -360.277
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot29"]
+margin_left = -313.007
+margin_top = -519.812
+margin_right = 325.993
+margin_bottom = 478.188
+custom_fonts/font = SubResource( 4 )
+text = "29"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot30" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 785.295, 346.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot30"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -358.266
+margin_top = -637.0
+margin_right = -361.266
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot30"]
+margin_left = -340.404
+margin_top = -521.0
+margin_right = 337.596
+margin_bottom = 477.0
+custom_fonts/font = SubResource( 4 )
+text = "30"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot31" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 62.4298, 461.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot31"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -358.0
+margin_top = -637.0
+margin_right = -361.0
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot31"]
+margin_left = -257.277
+margin_top = -586.162
+margin_right = 280.723
+margin_bottom = 411.838
+custom_fonts/font = SubResource( 4 )
+text = "31"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot32" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 137.35, 461.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot32"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -350.628
+margin_top = -637.0
+margin_right = -353.628
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot32"]
+anchor_right = 0.366
+anchor_bottom = 0.108
+margin_left = -316.784
+margin_top = -643.614
+margin_right = 24.6963
+margin_bottom = 354.386
+custom_fonts/font = SubResource( 4 )
+text = "32"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot33" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 217.027, 461.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot33"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -355.523
+margin_top = -637.0
+margin_right = -358.523
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot33"]
+margin_left = -321.886
+margin_top = -586.162
+margin_right = 304.114
+margin_bottom = 411.838
+custom_fonts/font = SubResource( 4 )
+text = "33"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot34" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 299.082, 461.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot34"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -348.848
+margin_top = -637.0
+margin_right = -351.848
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot34"]
+margin_left = -322.09
+margin_top = -566.87
+margin_right = 301.91
+margin_bottom = 431.13
+custom_fonts/font = SubResource( 4 )
+text = "34"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot35" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 383.516, 461.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot35"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -354.211
+margin_top = -637.0
+margin_right = -357.211
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot35"]
+margin_left = -330.346
+margin_top = -574.351
+margin_right = 304.654
+margin_bottom = 423.649
+custom_fonts/font = SubResource( 4 )
+text = "35"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot36" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 467.949, 461.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot36"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -353.672
+margin_top = -637.0
+margin_right = -356.672
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot36"]
+margin_left = -352.821
+margin_top = -546.931
+margin_right = 317.179
+margin_bottom = 451.069
+custom_fonts/font = SubResource( 4 )
+text = "36"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot37" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 548.816, 461.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot37"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -340.479
+margin_top = -637.0
+margin_right = -343.479
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot37"]
+margin_left = -318.144
+margin_top = -539.34
+margin_right = 315.856
+margin_bottom = 458.66
+custom_fonts/font = SubResource( 4 )
+text = "37"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot38" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 629.682, 461.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot38"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -351.906
+margin_top = -637.0
+margin_right = -354.906
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot38"]
+margin_left = -323.492
+margin_top = -516.302
+margin_right = 338.508
+margin_bottom = 481.698
+custom_fonts/font = SubResource( 4 )
+text = "38"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot39" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 705.601, 461.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot39"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -357.277
+margin_top = -637.0
+margin_right = -360.277
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot39"]
+margin_left = -340.281
+margin_top = -519.812
+margin_right = 319.719
+margin_bottom = 478.188
+custom_fonts/font = SubResource( 4 )
+text = "39"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot40" type="AnimatedSprite" parent="." groups=[
+"slots",
+]]
+material = SubResource( 2 )
+position = Vector2( 785.295, 461.508 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 3 )
+
+[node name="Button" type="Button" parent="slot40"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -358.266
+margin_top = -637.0
+margin_right = -361.266
+margin_bottom = -641.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slot40"]
+margin_left = -405.253
+margin_top = -491.455
+margin_right = 430.747
+margin_bottom = 506.545
+custom_fonts/font = SubResource( 4 )
+text = "40"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 78.0
+margin_top = 524.0
+margin_right = 190.0
+margin_bottom = 589.0
+text = "Play"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 306.961
+margin_top = 524.0
+margin_right = 418.961
+margin_bottom = 589.0
+text = "Clear board"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="betamount" type="Button" parent="."]
+margin_left = 673.015
+margin_top = 525.194
+margin_right = 774.015
+margin_bottom = 589.194
+custom_fonts/font = SubResource( 5 )
+text = "1.00€"
+flat = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="winnings" type="ColorRect" parent="."]
+margin_left = 836.0
+margin_top = 44.5546
+margin_right = 1016.0
+margin_bottom = 454.555
+color = Color( 0.137255, 0.619608, 0.807843, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="winnings"]
+margin_left = 9.73517
+margin_top = 54.0
+margin_right = 32.7352
+margin_bottom = 401.0
+custom_fonts/font = SubResource( 6 )
+text = "10 :
+9 :
+8 :
+7 :
+6 :
+5 :
+4 :
+3 :
+2 :
+1 :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="winnings"]
+margin_left = 66.1225
+margin_top = 53.1225
+margin_right = 108.122
+margin_bottom = 405.122
+custom_fonts/font = SubResource( 7 )
+text = "500
+50,0
+40,0 
+35,0
+12,5
+5,00
+3,00
+2,00
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Balance" type="Label" parent="."]
+margin_left = 800.625
+margin_top = 524.692
+margin_right = 980.625
+margin_bottom = 583.692
+custom_fonts/font = SubResource( 8 )
+text = "Balance: 5"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="euros" type="Label" parent="."]
+margin_left = 950.0
+margin_top = 97.6365
+margin_right = 1000.0
+margin_bottom = 431.637
+custom_fonts/font = SubResource( 9 )
+text = "€
+€
+€
+€
+€
+€
+€
+€"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="winningscreen" type="ColorRect" parent="."]
+visible = false
+margin_right = 1022.0
+margin_bottom = 597.0
+color = Color( 0.0431373, 0.0196078, 0.0196078, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="winningscreen"]
+margin_left = 250.978
+margin_top = 174.714
+margin_right = 669.978
+margin_bottom = 372.714
+custom_fonts/font = SubResource( 10 )
+text = "You Won:
+0.20"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Keep winnings" type="Button" parent="winningscreen"]
+margin_left = 90.427
+margin_top = 389.836
+margin_right = 430.427
+margin_bottom = 454.836
+custom_fonts/font = SubResource( 11 )
+text = "Keep winnings"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Double" type="Button" parent="winningscreen"]
+margin_left = 551.759
+margin_top = 389.836
+margin_right = 728.759
+margin_bottom = 454.836
+custom_fonts/font = SubResource( 12 )
+text = "Double"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Doublescreen" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="Doublescreen"]
+margin_top = -0.471939
+margin_right = 1023.0
+margin_bottom = 598.528
+rect_pivot_offset = Vector2( -503.171, 72.8673 )
+color = Color( 0.12549, 0.247059, 0.258824, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card1" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 60.6976, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card1"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card2" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 144.843, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card2"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card3" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 229.696, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card3"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card4" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 313.842, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card4"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card5" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 396.566, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card5"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card6" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 480.712, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card6"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card7" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 565.565, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card7"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card8" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 649.711, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card8"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card9" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 732.827, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card9"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card10" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 816.972, 84.8578 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card10"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card11" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 60.6976, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card11"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card12" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 144.843, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card12"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card13" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 229.696, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card13"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card14" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 313.842, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card14"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card15" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 396.566, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card15"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card16" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 480.712, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card16"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card17" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 565.565, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card17"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card18" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 649.711, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card18"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card19" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 732.827, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card19"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card20" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 816.972, 204.968 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card20"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card21" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 60.6976, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card21"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card22" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 144.843, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card22"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card23" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 229.696, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card23"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card24" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 313.842, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card24"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card25" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 396.566, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card25"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card26" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 480.712, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card26"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card27" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 565.565, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card27"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card28" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 649.711, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card28"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card29" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 732.827, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card29"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card30" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 816.972, 328.785 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card30"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card31" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 60.6976, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card31"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card32" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 144.843, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card32"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card33" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 229.696, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card33"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card34" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 313.842, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card34"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card35" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 396.566, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card35"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card36" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 480.712, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card36"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card37" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 565.565, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card37"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card38" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 649.711, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card38"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card39" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 732.827, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card39"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card40" type="AnimatedSprite" parent="Doublescreen/ColorRect" groups=[
+"cards",
+]]
+position = Vector2( 816.972, 453.238 )
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 13 )
+animation = "0X"
+speed_scale = 6.0
+
+[node name="Button" type="Button" parent="Doublescreen/ColorRect/card40"]
+margin_left = -383.244
+margin_top = -640.0
+margin_right = 348.756
+margin_bottom = 638.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="winnings" type="Label" parent="Doublescreen/ColorRect"]
+margin_left = 38.5458
+margin_top = 535.465
+margin_right = 532.546
+margin_bottom = 583.465
+custom_fonts/font = SubResource( 14 )
+text = "Current winnings:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="win" type="ColorRect" parent="Doublescreen"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 599.0
+color = Color( 0.0431373, 0.0196078, 0.0196078, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Double" type="Button" parent="Doublescreen/win"]
+margin_left = 562.374
+margin_top = 347.963
+margin_right = 752.374
+margin_bottom = 434.963
+custom_fonts/font = SubResource( 15 )
+text = "Double"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keep" type="Button" parent="Doublescreen/win"]
+margin_left = 162.757
+margin_top = 347.963
+margin_right = 502.757
+margin_bottom = 434.963
+custom_fonts/font = SubResource( 15 )
+text = "Keep winnings"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Doublescreen/win"]
+margin_left = 149.318
+margin_top = 80.3184
+margin_right = 725.318
+margin_bottom = 384.318
+custom_fonts/font = SubResource( 16 )
+text = "You won: "
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Doublescreen"]
+wait_time = 3.0
+[connection signal="pressed" from="slot1/Button" to="slot1/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot2/Button" to="slot2/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot3/Button" to="slot3/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot4/Button" to="slot4/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot5/Button" to="slot5/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot6/Button" to="slot6/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot7/Button" to="slot7/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot8/Button" to="slot8/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot9/Button" to="slot9/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot10/Button" to="slot10/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot11/Button" to="slot11/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot12/Button" to="slot12/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot13/Button" to="slot13/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot14/Button" to="slot14/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot15/Button" to="slot15/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot16/Button" to="slot16/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot17/Button" to="slot17/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot18/Button" to="slot18/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot19/Button" to="slot19/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot20/Button" to="slot20/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot21/Button" to="slot21/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot22/Button" to="slot22/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot23/Button" to="slot23/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot24/Button" to="slot24/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot25/Button" to="slot25/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot26/Button" to="slot26/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot27/Button" to="slot27/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot28/Button" to="slot28/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot29/Button" to="slot29/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot30/Button" to="slot30/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot31/Button" to="slot31/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot32/Button" to="slot32/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot33/Button" to="slot33/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot34/Button" to="slot34/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot35/Button" to="slot35/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot36/Button" to="slot36/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot37/Button" to="slot37/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot38/Button" to="slot38/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot39/Button" to="slot39/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="slot40/Button" to="slot40/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="Button" method="_on_Clearboard_pressed"]
+[connection signal="pressed" from="betamount" to="Button" method="_on_betamount_pressed"]
+[connection signal="timeout" from="Timer" to="Button" method="_on_Timer_timeout"]
+[connection signal="pressed" from="winningscreen/Keep winnings" to="Button" method="_on_Keep_winnings_pressed"]
+[connection signal="pressed" from="winningscreen/Double" to="Button" method="_on_Double_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card1/Button" to="Doublescreen/ColorRect/card1/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card2/Button" to="Doublescreen/ColorRect/card2/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card3/Button" to="Doublescreen/ColorRect/card3/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card4/Button" to="Doublescreen/ColorRect/card4/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card5/Button" to="Doublescreen/ColorRect/card5/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card6/Button" to="Doublescreen/ColorRect/card6/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card7/Button" to="Doublescreen/ColorRect/card7/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card8/Button" to="Doublescreen/ColorRect/card8/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card9/Button" to="Doublescreen/ColorRect/card9/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card10/Button" to="Doublescreen/ColorRect/card10/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card11/Button" to="Doublescreen/ColorRect/card11/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card12/Button" to="Doublescreen/ColorRect/card12/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card13/Button" to="Doublescreen/ColorRect/card13/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card14/Button" to="Doublescreen/ColorRect/card14/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card15/Button" to="Doublescreen/ColorRect/card15/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card16/Button" to="Doublescreen/ColorRect/card16/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card17/Button" to="Doublescreen/ColorRect/card17/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card18/Button" to="Doublescreen/ColorRect/card18/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card19/Button" to="Doublescreen/ColorRect/card19/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card20/Button" to="Doublescreen/ColorRect/card20/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card21/Button" to="Doublescreen/ColorRect/card21/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card22/Button" to="Doublescreen/ColorRect/card22/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card23/Button" to="Doublescreen/ColorRect/card23/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card24/Button" to="Doublescreen/ColorRect/card24/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card25/Button" to="Doublescreen/ColorRect/card25/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card26/Button" to="Doublescreen/ColorRect/card26/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card27/Button" to="Doublescreen/ColorRect/card27/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card28/Button" to="Doublescreen/ColorRect/card28/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card29/Button" to="Doublescreen/ColorRect/card29/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card30/Button" to="Doublescreen/ColorRect/card30/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card31/Button" to="Doublescreen/ColorRect/card31/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card32/Button" to="Doublescreen/ColorRect/card32/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card33/Button" to="Doublescreen/ColorRect/card33/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card34/Button" to="Doublescreen/ColorRect/card34/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card35/Button" to="Doublescreen/ColorRect/card35/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card36/Button" to="Doublescreen/ColorRect/card36/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card37/Button" to="Doublescreen/ColorRect/card37/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card38/Button" to="Doublescreen/ColorRect/card38/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card39/Button" to="Doublescreen/ColorRect/card39/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/ColorRect/card40/Button" to="Doublescreen/ColorRect/card40/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Doublescreen/win/Double" to="Doublescreen" method="_on_Double_pressed"]
+[connection signal="pressed" from="Doublescreen/win/keep" to="Doublescreen" method="_on_keep_pressed"]
+[connection signal="timeout" from="Doublescreen/Timer" to="Doublescreen" method="_on_Timer_timeout"]
