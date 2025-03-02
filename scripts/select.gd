@@ -1,7 +1,6 @@
 extends Button
 
 func _on_Button_pressed() -> void:
-	
 	if $"../../Timer".is_stopped():
 		if get_parent().is_in_group("selected") == false && Global.selectedcards < 10:
 			get_parent().play("selected")

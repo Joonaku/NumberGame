@@ -1,15 +1,5 @@
 extends Button
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 func _on_Button_pressed() -> void:
 	print("XD")
 	var tiles = get_tree().get_nodes_in_group("slotst")
@@ -24,4 +14,3 @@ func _on_Button_pressed() -> void:
 			tiles[n].stop()
 			tiles[n].remove_from_group("slotst")
 			tiles[n].add_to_group("slots")
-	pass

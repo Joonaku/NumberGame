@@ -3,7 +3,6 @@ extends Button
 var hits = 0
 
 func _on_Button_pressed() -> void:
-	
 	if Global.balance >= Global.betamount:
 		Global.balance = Global.balance - Global.betamount
 		$"../Balance".set_text("Balance: "+str(Global.balance))

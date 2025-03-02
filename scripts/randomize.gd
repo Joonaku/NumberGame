@@ -2,7 +2,6 @@ extends Node2D
 var once = true
 
 func _ready() -> void:
-	
 	if once == true:
 		randomizecards()
 		
