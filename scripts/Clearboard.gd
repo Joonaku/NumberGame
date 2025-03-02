@@ -1,7 +1,6 @@
 extends Button
 
 func _on_Button_pressed() -> void:
-	print("XD")
 	var tiles = get_tree().get_nodes_in_group("slotst")
 	for n in tiles.size():
 		if tiles[n].is_in_group("default"):
