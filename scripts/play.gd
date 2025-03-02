@@ -2,6 +2,7 @@ extends Button
 
 var hits = 0
 
+# Button for doing the bet
 func _on_Button_pressed() -> void:
 	if Global.balance >= Global.betamount:
 		Global.balance = Global.balance - Global.betamount
@@ -33,7 +34,6 @@ func winCalc():
 	hits = 0
 
 func restartboard():
-	
 	var tiles = get_tree().get_nodes_in_group("slotst")
 	for n in tiles.size():
 		if tiles[n].is_in_group("selected"):
@@ -47,6 +47,7 @@ func restartboard():
 			tiles[n].remove_from_group("slotst")
 			tiles[n].add_to_group("slots")
 			
+# Button to change the bet amount
 func _on_betamount_pressed() -> void:
 	var i = 40
 	match Global.betamount:
@@ -118,6 +119,5 @@ func _on_Clearboard_pressed() -> void:
 		tiles[n].set_frame(0)
 		tiles[n].stop()
 		tiles[n].remove_from_group("slotst")
-		#tiles[n].add_to_group("slots")
 		tiles[n].remove_from_group("selected")
 		
